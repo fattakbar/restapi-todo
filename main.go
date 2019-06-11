@@ -9,7 +9,13 @@ import (
 var db *gorm.DB
 
 func init()  {
+	var err error
+	db, err = gorm.Open("mysql", "root:@/api-todo?charset=utf8&parseTime=True&loc=Local")
 
+	if err != nil{
+		panic("failed to connect database")
+	}
+	db.AutoMigrate(&todoModel{})
 }
 
 func main() {
