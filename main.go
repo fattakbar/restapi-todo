@@ -8,6 +8,14 @@ import (
 
 var db *gorm.DB
 
+type(
+	todoModel struct{
+		gorm.Model
+		Title		string	`json:"title"`
+		Completed 	int    	`json:"completed"`
+	}
+)
+
 func init()  {
 	var err error
 	db, err = gorm.Open("mysql", "root:@/api-todo?charset=utf8&parseTime=True&loc=Local")
