@@ -2,7 +2,12 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/jinzhu/gorm"
+	"github.com/jinzhu/gorm/dialects/mysql"
 )
+
+var db *gorm.DB
+
 
 func main() {
 	router := gin.Default()
